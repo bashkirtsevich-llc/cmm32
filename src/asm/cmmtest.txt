@@ -1,0 +1,58 @@
+//var
+//  buf: array[0..1000] of Byte;
+//  mapStr, logStr: string;
+//
+//const
+//samplecode: PAnsiChar = '#map'#13#10+
+//                        '#list'#13#10+
+//                        'main()'#13#10+
+//                        '{'#13#10+
+//                        '        foo("qweqwe");'#13#10+
+//                        '}'#13#10+
+//                        'dword foo(dword string)'#13#10+
+//                        '{'#13#10+
+//                        '        return(0);'#13#10+
+//                        '}';
+//
+//type
+//  TProcCompile = procedure (const AImageBase: DWORD; const onLoadFileProc,
+//    onWriteEXEFileProc, onWriteMAPFileProc, onWritemessageProc: Pointer); stdcall;
+//
+//  procedure LoadFileProc(const destPtr: Pointer; const fileNamePtr: PAnsiChar); stdcall;
+//  begin
+//    if fileNamePtr = nil then
+//      DWORD(destPtr^) := DWORD(samplecode);
+//  end;
+//
+//  procedure WriteEXEFileProc(const dataPtr: Pointer; const dataSize: Cardinal); stdcall;
+//  var
+//    codeptr: Pointer;
+//  begin
+//    MessageBox(0, PChar(mapStr), nil, 0);
+//    MessageBox(0, PChar(logStr), nil, 0);
+//    codeptr := @buf[0];
+//    CopyMemory(codeptr, dataPtr, dataSize);
+//    asm
+//      mov eax, codeptr
+//      nop
+//      call eax
+//    end;
+//  end;
+//
+//  procedure WriteMAPFileProc(const dataStr: PAnsiChar); stdcall;
+//  begin
+//    mapStr := mapStr + dataStr;
+//  end;
+//
+//  procedure WritemessageProc(const dataStr: PAnsiChar); stdcall;
+//  begin
+//    logStr := logStr + dataStr;
+//  end;
+
+//var
+//  hDll: HMODULE;
+//  procCompile: TProcCompile;
+begin
+//  hDll := LoadLibrary('D:\DISTR\!Src\cmm32\src\asm\cmm.dll');
+//  procCompile := GetProcAddress(hDll, 'Compile');
+//  procCompile(Cardinal(@buf[0]), @LoadFileProc, @WriteEXEFileProc, @WriteMAPFileProc, @WritemessageProc);
